@@ -22,8 +22,8 @@ export default function App() {
       <Routes>
         <Route path='/' element={<MovieListPage  movies={movies}/>} />
         <Route path='/Movies' element={<MovieListPage  movies={movies}/>} />
-        <Route path='/movies/movieTitle' element={<MovieDetailPage  movies={movies}/>} />
-        <Route path='/Actors' element={<ActorListPage  movies={movies}/>} />
+        <Route path="/movies/:movieName" element={<MovieDetailPage  movies={movies}/>} />
+        <Route path="/actors"element={<ActorListPage  movies={movies}/>} />
       </Routes> </>
       : <LoginPage setUser={setUser} />
       }

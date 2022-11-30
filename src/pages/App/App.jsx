@@ -6,25 +6,27 @@ import ActorListPage from '../ActorListPage/ActorListPage';
 import MovieDetailPage from '../MovieDetailPage/MovieDetailPage';
 import MovieListPage from '../MovieListPage/MovieListPage';
 import NavBar from '../../Components/NavBar/NavBar';
+import { movies } from '../../data.js';
+
 
 export default function App() {
-  const [user, setUser] = useState("null")
+  const [user, setUser] = useState('null')
 
-  console.log(user)
   return (
-    <div className="App">
+    <div className='App'>
      
 
       {user ? 
       <>
       <NavBar />
       <Routes>
-        <Route path='/' element={<MovieListPage />} />
-        <Route path='/Movies' element={<MovieListPage />} />
-        <Route path='/Actors' element={<ActorListPage />} />
-        <Route path='/movies/movieTitle' element={<MovieDetailPage />} />
+        <Route path='/' element={<MovieListPage  movies={movies}/>} />
+        <Route path='/Movies' element={<MovieListPage  movies={movies}/>} />
+        <Route path='/movies/movieTitle' element={<MovieDetailPage  movies={movies}/>} />
+        <Route path='/Actors' element={<ActorListPage  movies={movies}/>} />
       </Routes> </>
-      : <LoginPage />}
+      : <LoginPage setUser={setUser} />
+      }
       
     </div>
   );
